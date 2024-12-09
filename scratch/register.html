@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+       body {
+         font-family: 'Roboto', sans-serif;
+         margin: 0;
+         padding: 0;
+         background-color: #d5e8da;
+         color: #333;
+       }
+       header {
+        background-color: #82c09a;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+       h1{
+        color: #376044;
+       }
+       header nav {
+         margin: 1rem 0;
+       }
+       header nav button {
+        padding: 10px 20px;
+      margin: 5px;
+      background-color: #e8f5e9;
+      border: 1px solid #5aa469;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+       
+       header nav button:hover {
+        background-color: #5aa469;
+          color: white;
+       }
+       section {
+         padding: 2rem;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         flex-direction: column;
+       }
+       .form-container {
+         background: #ffffff;
+         padding: 2rem;
+         border-radius: 10px;
+         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+         max-width: 600px;
+         width: 100%;
+       }
+       h2 {
+         text-align: center;
+         color: #4CAF50;
+         margin-bottom: 1.5rem;
+         font-size: 1.8rem;
+         border-bottom: 2px solid #4CAF50;
+         display: inline-block;
+         padding-bottom: 0.5rem;
+       }
+       form label {
+         display: block;
+         margin: 0.8rem 0 0.4rem;
+         font-weight: bold;
+         color: #555;
+       }
+       form input, form select, form textarea, form button {
+         width: 100%;
+         padding: 0.8rem;
+         margin: 0.4rem 0 1rem;
+         border: 1px solid #ccc;
+         border-radius: 5px;
+         font-size: 1rem;
+         background-color: #f9f9f9;
+       }
+       form textarea {
+         resize: vertical;
+       }
+       form button {
+         background-color: #4CAF50;
+         color: #fff;
+         border: none;
+         cursor: pointer;
+         font-size: 1rem;
+         transition: background-color 0.3s;
+       }
+       form button:hover {
+         background-color: #45a049;
+       }
+    </style>
+</head>
+
+<body>
+  <header>
+    <h1>SYNC MASTER</h1>
+    <nav>
+      <a href="index.html"><button onclick="showSection('home')">Home</button></a>
+      <a href="register.html"><button onclick="showSection('register')">REGISTER CLUB</button></a>
+      <button onclick="showSection('workspace')">WORKSPACE</button>
+     <a href="deandash.html"></a> <button onclick="showSection('admin')">HOD/DEAN DASHBOARD</button></a>
+    <a href="upcoming.html"> <button onclick="showSection('upcoming')">UPCOMING EVENTS</button></a> 
+      <a href="feedback.html"><button onclick="showSection('feedback')">FEEDBACKS</button></a>
+    </nav>
+  </header>
+
+  <section id="register">
+    <div class="form-container">
+      <h2>CLUB REGISTRATION</h2>
+      <form id="club-registration-form">
+        <label for="clubName">Club Name:</label>
+        <input type="text" id="clubName" name="clubName" placeholder="Enter the club's name" required>
+
+        <label for="description">Club Description:</label>
+        <textarea id="description" name="description" rows="4" placeholder="Describe your club's mission and activities" required></textarea>
+
+        <label for="presidentName">President's Name:</label>
+        <input type="text" id="presidentName" name="presidentName" placeholder="Enter the club president's name" required>
+
+        <label for="presidentContact">President's Contact Number:</label>
+        <input type="tel" id="presidentContact" name="presidentContact" placeholder="Enter the contact number" pattern="[0-9]{10}" required>
+
+        <label for="facultyCoordinator">Faculty Coordinator Name:</label>
+        <input type="text" id="facultyCoordinator" name="facultyCoordinator" placeholder="Enter the faculty coordinator's name" required>
+
+        <label for="facultyContact">Faculty Coordinator Contact:</label>
+        <input type="tel" id="facultyContact" name="facultyContact" placeholder="Enter the contact number" pattern="[0-9]{10}" required>
+
+        <label for="email">Club Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter the club's email" required>
+
+        <label for="members">List of Members:</label>
+        <textarea id="members" name="members" rows="4" placeholder="Enter the names of all members" required></textarea>
+
+        <label for="registrationType">Type of Registration:</label>
+        <select id="registrationType" name="registrationType" required>
+          <option value="" disabled selected>Select an option</option>
+          <option value="new">New Registration</option>
+          <option value="renewal">Renewal</option>
+        </select>
+
+        <label for="activities">Proposed Club Activities:</label>
+        <textarea id="activities" name="activities" rows="4" placeholder="List the activities your club plans to organize" required></textarea>
+
+        <button type="submit">Submit Registration</button>
+      </form>
+    </div>
+  </section>
+
+
+  <script>
+    async function submitClubForm(event) {
+        event.preventDefault(); // Prevent form submission reload
+
+        // Get form data
+        const formData = new FormData(document.getElementById('club-registration-form'));
+
+        // Convert to JSON
+        const formObject = {};
+        formData.forEach((value, key) => {
+            formObject[key] = value;
+        });
+
+        // Send data to the backend
+        try {
+            const response = await fetch('https://your-backend-endpoint/api/submitClub', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formObject),
+            });
+
+            if (response.ok) {
+                alert('Club registration submitted successfully!');
+                // Redirect to another page if needed
+                window.location.href = 'deandash.html';
+            } else {
+                const errorData = await response.json();
+                alert('Error: ' + errorData.message);
+            }
+        } catch (error) {
+            alert('Submission failed. Please try again later.');
+            console.error('Error:', error);
+        }
+    }
+</script>
+</body>
+</html>

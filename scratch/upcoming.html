@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Events</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #d5e8da;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        nav{
+          margin-top: 10px;
+        }
+        header {
+      background-color: #82c09a;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+        header nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        h1{
+          color: #376044;
+          font-family: 'Playfair Display', serif;
+          font-size: 2.5rem;
+        }
+
+        header nav button {
+       padding: 10px 20px;
+      margin: 5px;
+      background-color: #e8f5e9;
+      border: 1px solid #5aa469;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+
+        header nav button:hover {
+          background-color: #5aa469;
+          color: white;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 2rem 0;
+            font-size: 2rem;
+            color: #333;
+        }
+
+        .events-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .event {
+            position: relative;
+            width: 300px;
+            aspect-ratio: 3/2;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: white;
+        }
+
+        .event:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .event img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .event:hover img {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .event .event-info {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .event .event-info h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .event .event-info p {
+            margin: 5px 0 0;
+            font-size: 0.9rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            .event {
+                width: 90%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .event {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SYNC MASTER</h1>
+        <nav>
+            <a href="index.html"><button>Home</button></a>
+            <a href="register.html"><button>REGISTER CLUB</button></a>
+            <a href="workspace.html"><button>WORKSPACE</button></a>
+            <a href="deandash.html"><button>HOD/DEAN DASHBOARD</button></a>
+            <a href="upcoming.html"><button>UPCOMING EVENTS</button></a>
+            <a href="feedback.html"><button>FEEDBACKS</button></a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>EVENTS ON THE WAY!</h2>
+        <div class="events-container">
+            <!-- Event 1 -->
+            <div class="event">
+                <img src="exhibition.jpg" alt="Art Exhibition">
+                <div class="event-info">
+                    <h3>Art Exhibition</h3>
+                    <p>December 10, 2024</p>
+                </div>
+            </div>
+
+            <!-- Event 2 -->
+            <div class="event">
+                <img src="concert.jpg" alt="Music Concert">
+                <div class="event-info">
+                    <h3>Music Concert</h3>
+                    <p>December 15, 2024</p>
+                </div>
+            </div>
+
+            <!-- Event 3 -->
+            <div class="event">
+                <img src="sportss.jpg" alt="Sports Meet">
+                <div class="event-info">
+                    <h3>Sports Meet</h3>
+                    <p>December 20, 2024</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Event Management Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Raleway', sans-serif;
+      background-color: #f4f7f6;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #82c09a;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin: 0;
+      color: #376044;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav button {
+      padding: 10px 20px;
+      margin: 5px;
+      background-color: #e8f5e9;
+      border: 1px solid #5aa469;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+
+    nav button:hover {
+      background-color: #5aa469;
+      color: white;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      text-align: center;
+      color: #5a5a5a;
+      margin-bottom: 20px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #666;
+    }
+
+    .events-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .event {
+      position: relative;
+      width: 350px;
+      aspect-ratio: 3/2;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      background: white;
+    }
+
+    .event:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .event img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .event:hover img {
+      opacity: 0.9;
+      transform: scale(1.05);
+    }
+
+    .event-info {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .event-info p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    /* Cards Section */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      padding: 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      padding: 15px;
+      font-size: 1.2rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SYNC MASTER</h1>
+    <nav>
+      <a href="index.html"><button>Home</button></a>
+      <a href="register.html"><button>Register Club</button></a>
+      <a href="workspace.html"><button>Workspace</button></a>
+      <a href="deandash.html"><button>HOD/Dean Dashboard</button></a>
+      <a href="upcoming.html"><button>Upcoming Events</button></a>
+      <a href="feedback.html"><button>Feedback</button></a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="active-section">
+      <h2>SYNC MASTER: A Single Platform For Every Event Need</h2>
+      <p>Manage club registrations, permissions, events, and feedback efficiently!</p>
+      <h2>Top-Notch & Most Successful Events</h2>
+      <div class="events-container">
+        <!-- Event Cards -->
+        <div class="event">
+          <img src="LIVE.jpg" alt="Live Music Fest">
+          <div class="event-info">
+            <p>LIVE MUSIC FEST ORGANISED BY ZEN CLUB <br> POWERED BY SYNC MASTER</p>
+          </div>
+        </div>
+        <div class="event">
+          <img src="POSTER.jpg" alt="Poster Making">
+          <div class="event-info">
+            <p>POSTER MAKING ORGANISED BY ISTE <br> POWERED BY SYNC MASTER</p>
+          </div>
+        </div>
+        <div class="event">
+          <img src="BHARAT.jpg" alt="Cultural Fest">
+          <div class="event-info">
+            <p>CULTURAL FEST ORGANISED BY IT TECHNICAL <br> POWERED BY SYNC MASTER</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Our Main Objective and Mission</h2>
+      <div class="container">
+        <div class="card">
+          <img src="event manage.jpeg" alt="Event Management">
+          <h3>Event Management</h3>
+        </div>
+        <div class="card">
+          <img src="permissiom.png" alt="Permissions and Room Allocation">
+          <h3>Permissions & Room Allocation</h3>
+        </div>
+        <div class="card">
+          <img src="workspace.jpg" alt="Dedicated Workspace">
+          <h3>Dedicated Workspace</h3>
+        </div>
+        <div class="card">
+          <img src="feedback.jpeg" alt="Feedbacks">
+          <h3>Feedbacks</h3>
+        </div>
+        <div class="card">
+          <img src="upcoming.jpeg" alt="Upcoming Events">
+          <h3>Upcoming Events</h3>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+</body>
+</html>

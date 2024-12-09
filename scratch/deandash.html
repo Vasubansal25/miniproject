@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dean Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin: 0;
+        }
+        section {
+            padding: 2rem;
+        }
+        .club-list {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .club-item {
+            border-bottom: 1px solid #ddd;
+            padding: 1rem 0;
+        }
+        .club-item:last-child {
+            border-bottom: none;
+        }
+        .club-title {
+            font-size: 1.5rem;
+            color: #4CAF50;
+        }
+        .club-detail {
+            margin: 0.5rem 0;
+        }
+        .club-detail strong {
+            font-weight: 600;
+        }
+        .empty-message {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #777;
+            margin-top: 2rem;
+        }
+    </style>
+    <script>
+        async function fetchClubRequests() {
+            const clubListContainer = document.getElementById('club-list-container');
+
+            try {
+                const response = await fetch('http://localhost:3000/api/getClubs');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch club requests.');
+                }
+
+                const clubs = await response.json();
+
+                if (clubs.length === 0) {
+                    clubListContainer.innerHTML = '<p class="empty-message">No club registrations found.</p>';
+                    return;
+                }
+
+                clubListContainer.innerHTML = clubs.map(club => `
+                    <div class="club-item">
+                        <p class="club-title">${club.clubName}</p>
+                        <p class="club-detail"><strong>Description:</strong> ${club.description}</p>
+                        <p class="club-detail"><strong>President:</strong> ${club.presidentName} (${club.presidentContact})</p>
+                        <p class="club-detail"><strong>Faculty Coordinator:</strong> ${club.facultyCoordinator} (${club.facultyContact})</p>
+                        <p class="club-detail"><strong>Email:</strong> ${club.email}</p>
+                        <p class="club-detail"><strong>Members:</strong> ${club.members}</p>
+                        <p class="club-detail"><strong>Registration Type:</strong> ${club.registrationType}</p>
+                        <p class="club-detail"><strong>Proposed Activities:</strong> ${club.activities}</p>
+                    </div>
+                `).join('');
+            } catch (error) {
+                clubListContainer.innerHTML = `<p class="empty-message">Error loading data: ${error.message}</p>`;
+            }
+        }
+
+        window.onload = fetchClubRequests;
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Dean Dashboard</h1>
+    </header>
+
+    <section>
+        <div class="club-list" id="club-list-container">
+            <!-- Club details will be loaded dynamically here -->
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  Nav{
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+  }
+  
+  header {
+    background-color:#A1D6B2;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    border: 2px solid black;
+    position: sticky;
+  }
+  
+  header nav button {
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color:#bac091 ;
+    border: none;
+    cursor: pointer;
+    border: 1px solid black;
+  }
+  
+  header nav button:hover {
+    background-color: #E0E5B6;
+  }
+  
+  main section {
+    display: none;
+    padding: 2rem;
+  }
+  
+  main section.active-section {
+    display: block;
+  }
+  
+  form label, form input, form textarea {
+    display: block;
+    margin: 0.5rem 0;
+    width: 100%;
+  }
+  
+
+  h1{
+    color: #376044;
+  }
+  h1:hover{
+    color: #376044;
+    animation: ease-out 2s;
+  }
+  #home{
+    font-family: 'Poppins', sans-serif;
+    
+  }
+  H2{
+    text-decoration: underline;
+  }
+  
